@@ -150,6 +150,14 @@ return {
                     "{C:attention}Jacks{} to gain a random",
                     "{C:dark_edition}edition{} when scored"
                 }
+            },
+            j_hnds_perfectionist = {
+                name = "Perfectionist",
+                text = {
+                    "When an {C:attention}Enhanced{} card",
+                    "is {C:attention}Enhanced{} again, that",
+                    "card {C:attention}permanently{} gains {C:mult}+#1#{} Mult"
+                }
             }
         },
         Spectral = {
