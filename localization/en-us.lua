@@ -143,22 +143,6 @@ return {
                     '{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} Mult)'
                 }
             },
-            j_hnds_handsome_devil = {
-                name = "Handsome Devil",
-                text = {
-                    "{C:green}#1# in #2#{} chance for played",
-                    "{C:attention}Jacks{} to gain a random",
-                    "{C:dark_edition}edition{} when scored"
-                }
-            },
-            j_hnds_perfectionist = {
-                name = "Perfectionist",
-                text = {
-                    "When an {C:attention}Enhanced{} card",
-                    "is {C:attention}Enhanced{} again, that",
-                    "card {C:attention}permanently{} gains {C:mult}+#1#{} Mult"
-                }
-            }
         },
         Spectral = {
             c_hnds_abyss = {
@@ -191,6 +175,22 @@ return {
                     "Add {C:dark_edition}Negative{} to",
                     "{C:attention}#1#{} selected cards,",
                     "{C:blue}-#2#{} hand each round",
+                }
+            },
+            c_hnds_gateway = {
+                name = 'Gateway',
+                text = {
+                    "Enhances {C:attention}#1#{}",
+                    "selected cards to",
+                    "{C:attention}Obsidian Cards",
+                }
+            },
+            c_hnds_collision = {
+                name = 'Collision',
+                text = {
+                    "Enhances {C:attention}#1#{}",
+                    "selected cards to",
+                    "{C:attention}Antimatter Cards",
                 }
             },
             c_hnds_hallows = {
@@ -229,17 +229,17 @@ return {
             }
         },
         Voucher = {
-            v_hnds_tag_hunter={
-                name="Tag Hunter",
-                text={
+            v_hnds_tag_hunter = {
+                name = "Tag Hunter",
+                text = {
                     "Create a random {C:attention}Tag{}",
                     "when {C:attention}Boss Blind{}",
                     "is defeated"
                 },
             },
-            v_hnds_hashtag_skip={
-                name="#2#skip",
-                text={
+            v_hnds_hashtag_skip = {
+                name = "#2#skip",
+                text = {
                     "{C:attention}-1{} Ante for",
                     "every {C:attention}#1#{} skips"
                 },
@@ -276,16 +276,36 @@ return {
                 },
             }
         },
-        Planet={
-            c_hnds_makemake={
-                name="Makemake",
-                text={
+        Planet = {
+            c_hnds_makemake = {
+                name = "Makemake",
+                text = {
                     "{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up",
                     "{C:attention}#2#",
                     "{C:chips}+#4#{} chips, {C:chips}+#6#{} extra",
                     "for each {C:attention}Stone Card{}",
                     "scored this Ante {C:inactive}[#5#]"
                 },
+            },
+        },
+        Enhanced = {
+            m_hnds_antimatter = {
+                name = "Antimatter Card",
+                text = {
+                    "{X:mult,C:white}X#1#{} Mult",
+                    "{C:green}#3# in #4#{} chance",
+                    "to gain {X:mult,C:white}X0.5{} Mult",
+                    "{C:inactive}(Max of {X:mult,C:white}X3{} {C:inactive}Mult){}"
+                }
+            },
+            m_hnds_obsidian = {
+                name = "Obsidian Card",
+                text = {
+                    "Lose {C:money}$1{}",
+                    "{C:green}#1# in #2#{} chance to",
+                    "create a {C:dark_edition}Negative{}",
+                    "consumable card"
+                }
             },
         }
     },
@@ -303,8 +323,7 @@ return {
             k_hnds_balloons = "All gone!",
             k_hnds_banana_split = "Split!",
             k_hnds_color_of_madness = "Madness!",
-            k_hnds_occultist = "Study!",
-            k_hnds_handsome = "Lookin' good!"
+            k_hnds_occultist = "Study!"
         },
         labels = {
             hnds_black_seal = "Black Seal",
