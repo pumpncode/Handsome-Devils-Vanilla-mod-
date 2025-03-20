@@ -76,8 +76,6 @@ local files = {
       "pot_of_greed",
       "jokestone",
       "color_of_madness",
-      "handsome_devil",
-      "perfectionist",
       "deep_pockets",
       "seismic_activity",
       "occultist",
@@ -102,6 +100,8 @@ local files = {
       "growth",
       "hallows",
       "petrify",
+      "gateway",
+      "collision",
       "dream",
     },
     directory = 'consumables/spectral/'
@@ -127,6 +127,13 @@ local files = {
     list = {},
     directory = 'poker_hands/'
   },
+  enhancements = {
+    list = {
+      "antimatter",
+      "obsidian"
+    },
+    directory = 'enhancements/'
+  }
 }
 
 if hnds_config.enableStoneOcean then table.insert(files.poker_hands.list, "stone_ocean") end
@@ -141,10 +148,10 @@ SMODS.Sound({
 })
 
 SMODS.Atlas({
-	key = "modicon",
-	path = "hd_icon.png",
-	px = 32,
-	py = 32
+  key = "modicon",
+  path = "hd_icon.png",
+  px = 32,
+  py = 32
 })
 
 SMODS.Atlas {
@@ -163,9 +170,9 @@ SMODS.Atlas {
 
 SMODS.Atlas {
   key = 'Vouchers', --atlas key
-  path = 'VHD.png',    --atlas' path in (yourMod)/assets/1x or (yourMod)/assets/2x
-  px = 71,             --width of one card
-  py = 95              -- height of one card
+  path = 'VHD.png', --atlas' path in (yourMod)/assets/1x or (yourMod)/assets/2x
+  px = 71,          --width of one card
+  py = 95           -- height of one card
 }
 
 SMODS.Atlas {
@@ -204,9 +211,9 @@ function generate_card_ui(_c, full_UI_table, specific_vars, card_type, badges, h
   if _c.set == "Joker" and _c.key == 'j_hnds_banana_split' then
     if card.edition and card.edition.negative then
       main_end = {}
-      localize{type = 'other', key = 'remove_negative', nodes = main_end, vars = {}}
+      localize { type = 'other', key = 'remove_negative', nodes = main_end, vars = {} }
       main_end = main_end[1]
-    end 
+    end
   end
 
   old_ret = old_card_ui(_c, full_UI_table, specific_vars, card_type, badges, hide_desc, main_start, main_end, card)
@@ -262,20 +269,10 @@ function HNDS.get_unique_suits(scoring_hand, bypass_debuff, flush_calc)
 end
 
 ---Gets a pseudorandom tag from the Tag pool - Also from Paperback. Go play it!!!!!
-function HNDS.poll_tag(seed, options, exclusions)
+function HNDS.poll_tag(seed, options)
   -- This part is basically a copy of how the base game does it
   -- Look at get_next_tag_key in common_events.lua
   local pool = options or get_current_pool('Tag')
-  if exclusions then
-    for excluded_index = 1, #exclusions do
-      for pool_index = 1, #pool do
-        if exclusions[excluded_index] == pool[pool_index] then
-          table.remove(pool, pool_index)
-          break
-        end
-      end
-    end
-  end
   local tag_key = pseudorandom_element(pool, pseudoseed(seed))
 
   while tag_key == 'UNAVAILABLE' do
@@ -304,9 +301,9 @@ end
 --For cross-mod compatibility with Maximus
 --Use this function when adding to a joker's value
 if not Card.scale_value then
-	function Card:scale_value(applied_value, scalar)
-		return applied_value + scalar
-	end
+  function Card:scale_value(applied_value, scalar)
+    return applied_value + scalar
+  end
 end
 
 --Return a list of all the jokers that create jokers in shop
@@ -335,14 +332,41 @@ function HNDS.get_shop_joker_tags()
   return tag_list
 end
 
+function HNDS.get_shop_hunter_tags()
+  local tag_list = {
+    "tag_foil",
+    "tag_holo",
+    "tag_polychrome",
+    "tag_negative",
+    "tag_rare",
+    "tag_uncommon",
+    "tag_investment",
+    "tag_voucher",
+    "tag_standard",
+    "tag_charm",
+    "tag_meteor",
+    "tag_buffoon",
+    "tag_ethereal",
+    "tag_coupon",
+    "tag_double",
+    "tag_d_six",
+    "tag_skip",
+    "tag_orbital",
+    "tag_economy",
+    "tag_handy",
+    "tag_garbage"
+  }
+  return tag_list
+end
+
 --[[---------------------------
 Load files
 --]] ---------------------------
 
 local function load_files(set)
-    for i = 1, #files[set].list do
-        if files[set].list[i] then assert(SMODS.load_file(files[set].directory .. files[set].list[i] .. '.lua'))() end
-    end
+  for i = 1, #files[set].list do
+    if files[set].list[i] then assert(SMODS.load_file(files[set].directory .. files[set].list[i] .. '.lua'))() end
+  end
 end
 
 for key, value in pairs(files) do
