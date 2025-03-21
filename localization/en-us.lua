@@ -143,6 +143,22 @@ return {
                     '{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} Mult)'
                 }
             },
+            j_hnds_handsome_devil = {
+                name = "Handsome Devil",
+                text = {
+                    "{C:green}#1# in #2#{} chance for played",
+                    "{C:attention}Jacks{} to gain a random",
+                    "{C:dark_edition}edition{} when scored"
+                }
+            },
+            j_hnds_perfectionist = {
+                name = "Perfectionist",
+                text = {
+                    "When an {C:attention}Enhanced{} card",
+                    "is {C:attention}Enhanced{} again, that",
+                    "card {C:attention}permanently{} gains {C:mult}+#1#{} Mult"
+                }
+            }
         },
         Spectral = {
             c_hnds_abyss = {
@@ -323,7 +339,8 @@ return {
             k_hnds_balloons = "All gone!",
             k_hnds_banana_split = "Split!",
             k_hnds_color_of_madness = "Madness!",
-            k_hnds_occultist = "Study!"
+            k_hnds_occultist = "Study!",
+            k_hnds_handsome = "Lookin' good!"
         },
         labels = {
             hnds_black_seal = "Black Seal",
