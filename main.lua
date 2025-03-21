@@ -76,6 +76,8 @@ local files = {
       "pot_of_greed",
       "jokestone",
       "color_of_madness",
+      "handsome_devil",
+      "perfectionist",
       "deep_pockets",
       "seismic_activity",
       "occultist",
@@ -269,10 +271,20 @@ function HNDS.get_unique_suits(scoring_hand, bypass_debuff, flush_calc)
 end
 
 ---Gets a pseudorandom tag from the Tag pool - Also from Paperback. Go play it!!!!!
-function HNDS.poll_tag(seed, options)
+function HNDS.poll_tag(seed, options, exclusions)
   -- This part is basically a copy of how the base game does it
   -- Look at get_next_tag_key in common_events.lua
   local pool = options or get_current_pool('Tag')
+  if exclusions then
+    for excluded_index = 1, #exclusions do
+      for pool_index = 1, #pool do
+        if exclusions[excluded_index] == pool[pool_index] then
+          table.remove(pool, pool_index)
+          break
+        end
+      end
+    end
+  end
   local tag_key = pseudorandom_element(pool, pseudoseed(seed))
 
   while tag_key == 'UNAVAILABLE' do
