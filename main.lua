@@ -77,6 +77,7 @@ local files = {
       "jokestone",
       "color_of_madness",
       "handsome_devil",
+      "dark_idol",
       "perfectionist",
       "deep_pockets",
       "seismic_activity",

@@ -1,8 +1,8 @@
 local set_ability_ref = Card.set_ability
 Card.set_ability = function(self, center, initial, delay_sprites)
     local ret = set_ability_ref(self, center, initial, delay_sprites)
-    if self.ability and self.ability.set == "Enhanced" and center.set == "Enhanced" then
-        for i = 1, #G.jokers.cards do
+    if self.ability and self.ability.set == "Enhanced" and center.set == "Enhanced" and self.area ~= G.deck then
+        if G.jokers.cards then for i = 1, #G.jokers.cards do
             if G.jokers.cards[i].config.center.key == "j_hnds_perfectionist" then
                 self.ability.perma_mult = self.ability.perma_mult or 0
                 self.ability.perma_mult = self.ability.perma_mult + G.P_CENTERS["j_hnds_perfectionist"].config.extra.mult
@@ -13,6 +13,7 @@ Card.set_ability = function(self, center, initial, delay_sprites)
                     return true end
                 }))
             end
+        end
         end
     end
     return ret

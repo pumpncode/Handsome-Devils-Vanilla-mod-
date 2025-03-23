@@ -19,6 +19,7 @@ SMODS.Joker {
         return { vars = { G.GAME.probabilities.normal, card.ability.extra.denom } } end,
     atlas = "Jokers",
     pos = { x = 5, y = 0 },
+    rarity = 2,
     cost = 5,
     unlocked = true,
     discovered = true,

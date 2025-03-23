@@ -158,6 +158,16 @@ return {
                     "is {C:attention}Enhanced{} again, that",
                     "card {C:attention}permanently{} gains {C:mult}+#1#{} Mult"
                 }
+            },
+            j_hnds_dark_idol = {
+                name = "The Dark Idol",
+                text = {
+                    "Gains {X:mult,C:white}X#1#{} Mult per scoring",
+                    "{C:attention}#2#{} of {V:1}#3#{}, then",
+                    "{C:red}destroys{} them",
+                    "{s:0.8}Card changes every round",
+                    "{C:inactive}(Currently {X:mult,C:white}X#4#{C:inactive} Mult)"
+                }
             }
         },
         Spectral = {
