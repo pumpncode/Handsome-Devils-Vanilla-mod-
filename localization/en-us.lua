@@ -168,6 +168,15 @@ return {
                     "{s:0.8}Card changes every round",
                     "{C:inactive}(Currently {X:mult,C:white}X#4#{C:inactive} Mult)"
                 }
+            },
+            j_hnds_energized = {
+                name = "Energized",
+                text = {
+                    "If {C:attention}first hand{} of round",
+                    "is a single card, retrigger",
+                    "that card {C:attention}4{} additional times,",
+                    "{C:green}#2# in #3#{} chance to destroy it"
+                }
             }
         },
         Spectral = {
@@ -350,7 +359,9 @@ return {
             k_hnds_banana_split = "Split!",
             k_hnds_color_of_madness = "Madness!",
             k_hnds_occultist = "Study!",
-            k_hnds_handsome = "Lookin' good!"
+            k_hnds_handsome = "Lookin' good!",
+            k_hnds_energized = "Zap!",
+            k_hnds_zapped = "Burnt!"
         },
         labels = {
             hnds_black_seal = "Black Seal",
